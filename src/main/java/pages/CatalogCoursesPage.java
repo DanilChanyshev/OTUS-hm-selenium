@@ -12,7 +12,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,14 +30,12 @@ import java.util.Map;
 public class CatalogCoursesPage extends AbsBasePage<CatalogCoursesPage> {
 
   @Inject
-  Waiter waiter;
-  @Inject
   CoursePage coursePage;
   @Inject
   ParserDateHelper parserDateHelper;
   @FindBy(css = "h1 > div.sc-hrqzy3-1.jEGzDf")
   private WebElement title;
-  @FindBy(css = ".sc-sbwx8a-0")
+  @FindBy(xpath = "//input[@type = 'search']")
   private WebElement search;
 
   public CatalogCoursesPage(WebDriver driver) {
@@ -61,11 +58,8 @@ public class CatalogCoursesPage extends AbsBasePage<CatalogCoursesPage> {
 
   @Step("Навести курсор на строку поиска в внести текст")
   public CatalogCoursesPage searchWithText(CourseName courseName) {
-    actions.moveToElement(search)
-            .click()
-            .sendKeys(courseName.getName())
-            .sendKeys(Keys.ENTER)
-            .perform();
+    search.click();
+    search.sendKeys(courseName.getName());
     return this;
   }
 

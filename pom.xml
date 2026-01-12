@@ -27,9 +27,16 @@
 
         <base.url>https://otus.ru</base.url>
         <browser.name>chrome</browser.name>
+        <selenide.ui.server>http://188.130.251.59/wd/hub</selenide.ui.server>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>7.13.0</version>
+            <scope>compile</scope>
+        </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
@@ -95,6 +102,7 @@
                   <systemPropertyVariables>
                       <base.url>${base.url}</base.url>
                       <browser.name>${browser.name}</browser.name>
+                      <selenide.ui.server>${selenide.ui.server}</selenide.ui.server>
                   </systemPropertyVariables>
               </configuration>
           </plugin>

@@ -8,6 +8,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import waiters.Waiter;
 import java.time.Duration;
 import java.util.List;
@@ -17,8 +18,9 @@ public class HomePage extends AbsBasePage<HomePage> {
 
   @Inject
   CatalogCoursesPage catalogCoursesPage;
-  @Inject
-  Waiter waiter;
+
+  @FindBy(css = "overlay-banner-close-button")
+  WebElement closeModalButton;
 
   private String buttonEducation = "//span[text() = '%s']";
 
