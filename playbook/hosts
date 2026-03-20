@@ -1,5 +1,5 @@
 [selenoid]
-188.130.251.59
+localhost ansible_connection=local
 
 [ui-test]
 localhost ansible_connection=local
