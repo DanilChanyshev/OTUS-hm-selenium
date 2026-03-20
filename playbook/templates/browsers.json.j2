@@ -6,13 +6,19 @@
                 "image": "selenoid/chrome:{{ chrome_version1 }}",
                 "port": "4444",
                 "path": "/",
-                "vnc": true
+                "vnc": true,
+                "screenResolution": "1920x1080x24",
+                "enableVNC": true,
+                "enableVideo": false
             },
             "{{ chrome_version2 }}": {
                 "image": "selenoid/chrome:{{ chrome_version2 }}",
                 "port": "4444",
                 "path": "/",
-                "vnc": true
+                "vnc": true,
+                "screenResolution": "1920x1080x24",
+                "enableVNC": true,
+                "enableVideo": false
             }
         }
     }

@@ -5,6 +5,6 @@
     chdir: "{{ workspace }}"
 
 - name: Run tests
-  command: mvn clean test -Dbrowser.name=chrome -Dselenide.ui.server=http://188.130.251.59/wd/hub allure:report
+  command: mvn clean test -Dbrowser.name=chrome -Dselenide.ui.server=http://188.130.251.59:4444/wd/hub/ allure:report
   args:
     chdir: "{{ workspace }}"
