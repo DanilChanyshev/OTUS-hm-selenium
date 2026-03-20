@@ -6,11 +6,11 @@ node('ui_runner') {
         checkout scm
     }
 
-    stage('Build selenoid-UI') {
-        dir("${env.WORKSPACE}") {
-            sh "ansible-playbook -i playbook/hosts playbook/selenoid_playbook.yaml"
-        }
-    }
+//    stage('Build selenoid-UI') {
+//        dir("${env.WORKSPACE}") {
+//            sh "ansible-playbook -i playbook/hosts playbook/selenoid_playbook.yaml"
+//        }
+//    }
 
     stage('Run UI tests') {
         dir("${env.WORKSPACE}") {
