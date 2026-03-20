@@ -1,15 +1,15 @@
 ---
-#- name: Add user in docker group
-#  user:
-#    name: "{{ ansible_facts.user_id }}"
-#    append: true
-#    groups: docker
+- name: Add user in docker group
+  user:
+    name: "{{ ansible_facts.user_id }}"
+    append: true
+    groups: docker
 
-#- name: Change docker.sock permisions
-#  file:
-#    path: /var/run/docker.sock
-#    state: file
-#    mode: "0666"
+- name: Change docker.sock permisions
+  file:
+    path: /var/run/docker.sock
+    state: file
+    mode: "0666"
 
 - name: Create workdir
   file:
