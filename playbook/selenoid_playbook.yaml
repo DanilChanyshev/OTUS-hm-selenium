@@ -3,6 +3,5 @@
   become: false
   remote_user: root
   roles:
-    - docker-compose
     - common
     - rendering_configs
