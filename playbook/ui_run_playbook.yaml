@@ -1,0 +1,6 @@
+- name: Run UI tests
+  hosts: ui-test
+  become: false
+  remote_user: root
+  roles:
+    - run_test

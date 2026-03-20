@@ -10,8 +10,8 @@
 
     <properties>
         <maven.version>3.14.0</maven.version>
-        <maven.compiler.source>22</maven.compiler.source>
-        <maven.compiler.target>22</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <selenium.version>4.36.0</selenium.version>
@@ -24,6 +24,9 @@
         <surefire-plugin.version>3.5.3</surefire-plugin.version>
         <checkstyle.plagin>3.3.1</checkstyle.plagin>
         <spotbugs.version>4.8.6.0</spotbugs.version>
+        <aspectj.version>1.9.22</aspectj.version>
+        <allure-maven.version>2.17.0</allure-maven.version>
+        <allure-selenide.version>2.24.0</allure-selenide.version>
 
         <base.url>https://otus.ru</base.url>
         <browser.name>chrome</browser.name>
@@ -72,6 +75,11 @@
             <artifactId>allure-junit5</artifactId>
             <version>${allure.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-selenide</artifactId>
+            <version>${allure-selenide.version}</version>
+        </dependency>
     </dependencies>
 
     <profiles>
@@ -99,10 +107,12 @@
               <artifactId>maven-surefire-plugin</artifactId>
               <version>${surefire-plugin.version}</version>
               <configuration>
+                  <argLine>-javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar</argLine>
                   <systemPropertyVariables>
                       <base.url>${base.url}</base.url>
                       <browser.name>${browser.name}</browser.name>
                       <selenide.ui.server>${selenide.ui.server}</selenide.ui.server>
+                      <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                   </systemPropertyVariables>
               </configuration>
           </plugin>
@@ -137,6 +147,20 @@
                     <execution>
                         <goals>
                             <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven.version}</version>
+                <executions>
+                    <execution>
+                        <id>allure-report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>
