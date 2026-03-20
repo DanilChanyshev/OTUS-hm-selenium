@@ -17,13 +17,13 @@
     - chrome:127.0
   tags: selenoid_config
 
-- name: Create docker networks
-  community.docker.docker_network:
-    name: "{{ item }}"
-  loop:
-    - selenoid1
-    - selenoid2
-  tags: selenoid_config
+#- name: Create docker networks
+#  community.docker.docker_network:
+#    name: "{{ item }}"
+#  loop:
+#    - selenoid1
+#    - selenoid2
+#  tags: selenoid_config
 
 - name: Create docker-compose.yaml for selenoid
   template:
