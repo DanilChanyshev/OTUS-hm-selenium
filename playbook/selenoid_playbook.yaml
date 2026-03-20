@@ -1,6 +1,6 @@
 - name: Setup selenoid
   hosts: selenoid
-  become: yes
+  become: false
   remote_user: root
   roles:
     - docker
