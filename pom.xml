@@ -24,7 +24,7 @@
         <surefire-plugin.version>3.5.3</surefire-plugin.version>
         <checkstyle.plagin>3.3.1</checkstyle.plagin>
         <spotbugs.version>4.8.6.0</spotbugs.version>
-        <aspectj.version>1.9.22</aspectj.version>
+        <aspectj.version>1.9.21</aspectj.version>
         <allure-maven.version>2.17.0</allure-maven.version>
         <allure-selenide.version>2.24.0</allure-selenide.version>
 
@@ -80,6 +80,11 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-selenide</artifactId>
             <version>${allure-selenide.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
         </dependency>
     </dependencies>
 
