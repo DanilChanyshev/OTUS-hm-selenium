@@ -31,7 +31,7 @@
         <base.url>https://otus.ru</base.url>
         <browser.name>chrome</browser.name>
 <!--        <selenide.ui.server>http://188.130.251.59/wd/hub</selenide.ui.server>-->
-        <selenide.ui.server>http://188.130.251.59:4444/wd/hub/</selenide.ui.server>
+        <selenide.ui.server>http://188.130.251.59:8081/wd/hub</selenide.ui.server>
     </properties>
 
     <dependencies>
