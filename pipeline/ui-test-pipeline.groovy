@@ -34,4 +34,9 @@ node('ui_runner') {
         ])
     }
 
+    stage('Archive allure results') {
+        archiveArtifacts artifacts: 'target/allure-results/**',
+                allowEmptyArchive: true,
+                fingerprint: true
+    }
 }
