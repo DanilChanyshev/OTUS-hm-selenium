@@ -9,10 +9,7 @@ node('android') {
     stage('Start selenoid') {
         dir("${env.WORKSPACE}") {
             catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                sh '''
-                ansible-playbook -i playbook/hosts playbook/selenoid_playbook.yaml
-                sleep 60
-            '''
+                sh "ansible-playbook -i playbook/hosts playbook/selenoid_playbook.yaml"
             }
         }
     }
