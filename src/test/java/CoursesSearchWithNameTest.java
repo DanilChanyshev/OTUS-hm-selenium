@@ -1,6 +1,7 @@
 import com.google.inject.Inject;
 import data.CourseName;
 import extensions.UIExtension;
+import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,6 +14,7 @@ public class CoursesSearchWithNameTest extends BaseTest{
   CatalogCoursesPage catalogCoursesPage;
 
   @Test
+  @Epic("UI test")
   @DisplayName("UI. Поиск курса по названию")
   public void coursesSearchWithNameTest() {
 
